@@ -3,7 +3,9 @@ const { query } = require('../config/db');
 const UserModel = {
   // Find user by email
   async findByEmail(email) {
-    const [rows] = await query('SELECT * FROM users WHERE email = ?', [email]);
+    if (!email) return null;
+    const cleanEmail = String(email).trim().toLowerCase();
+    const [rows] = await query('SELECT * FROM users WHERE LOWER(TRIM(email)) = ?', [cleanEmail]);
     return rows[0] || null;
   },
 

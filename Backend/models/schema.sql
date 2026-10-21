@@ -1,6 +1,7 @@
 -- Smart Quiz Database Schema
-CREATE DATABASE IF NOT EXISTS smart_quiz_db;
-USE smart_quiz_db;
+CREATE DATABASE IF NOT EXISTS smart_quiz;
+USE smart_quiz
+;
 
 -- 1. Users Table
 CREATE TABLE IF NOT EXISTS users (

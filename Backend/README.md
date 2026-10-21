@@ -52,7 +52,7 @@ DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
 DB_PASSWORD=your_mysql_password
-DB_NAME=smart_quiz_db
+DB_NAME=smart_quiz
 
 JWT_SECRET=smart_quiz_super_secret_jwt_key_2026
 JWT_EXPIRES_IN=24h
@@ -64,7 +64,7 @@ Ensure your local MySQL service is running, then run:
 npm run init-db
 ```
 This automatically:
-- Creates the `smart_quiz_db` database
+- Creates the `smart_quiz` database
 - Creates all 5 tables (`users`, `quizzes`, `questions`, `submissions`, `submission_answers`)
 - Seeds a default admin account (`admin@example.com` / `admin123`)
 - Seeds a demo student account (`student@example.com` / `user123`)
