@@ -18,7 +18,9 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await api.post('/auth/login', { email, password });
+      const cleanEmail = email.trim().toLowerCase();
+      const cleanPassword = password.trim();
+      const res = await api.post('/auth/login', { email: cleanEmail, password: cleanPassword });
       if (res.data.success) {
         login(res.data.token, res.data.user);
         if (res.data.user.role === 'admin') {
@@ -155,6 +157,7 @@ const Login = () => {
                   <span className="font-bold text-xs text-amber-300">Admin</span>
                 </div>
                 <span className="text-[10px] text-slate-400 truncate block font-mono">admin@smartquiz.com</span>
+                <span className="text-[9px] text-amber-400/80 block font-mono mt-0.5">pass: admin123</span>
               </button>
 
               {/* Student Button */}
@@ -168,6 +171,7 @@ const Login = () => {
                   <span className="font-bold text-xs text-emerald-300">Student</span>
                 </div>
                 <span className="text-[10px] text-slate-400 truncate block font-mono">student@smartquiz.com</span>
+                <span className="text-[9px] text-emerald-400/80 block font-mono mt-0.5">pass: student123</span>
               </button>
             </div>
           </div>
